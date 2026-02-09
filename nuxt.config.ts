@@ -2,6 +2,8 @@ import process from 'node:process'
 import { currentLocales } from './config/i18n'
 import { isCI, provider } from 'std-env'
 
+const isStorybook = process.env.STORYBOOK === 'true' || process.env.VITEST_STORYBOOK === 'true'
+
 export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
@@ -14,7 +16,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
-    '@nuxtjs/color-mode',
+    isStorybook ? undefined : '@nuxtjs/color-mode',
   ],
 
   $test: {
@@ -157,9 +159,7 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    entryImportMap: false,
-    typescriptPlugin: true,
-    viteEnvironmentApi: true,
+    viteEnvironmentApi: !isStorybook,
     typedPages: true,
   },
 
