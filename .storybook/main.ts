@@ -1,8 +1,11 @@
-import type { StorybookConfig } from '@storybook-vue/nuxt'
+import type { StorybookConfig } from '@nuxtjs/storybook'
 
-const config: StorybookConfig = {
-  stories: ['../components/**/*.mdx', '../components/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+const config = {
+  stories: ['../app/**/*.stories.@(js|ts|mdx)'],
   addons: ['@storybook/addon-a11y', '@storybook/addon-docs'],
   framework: '@storybook-vue/nuxt',
-}
+  features: {
+    backgrounds: false,
+  },
+} satisfies StorybookConfig
 export default config
