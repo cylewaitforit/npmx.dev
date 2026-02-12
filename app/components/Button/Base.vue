@@ -1,9 +1,7 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    /**
-     * Whether the button is disabled
-     */
+    /** Whether the button is disabled */
     disabled?: boolean
     /**
      * HTML button type attribute
@@ -20,17 +18,11 @@ const props = withDefaults(
      * @default "medium"
      */
     size?: 'small' | 'medium'
-    /**
-     * Keyboard shortcut hint
-     */
+    /** Keyboard shortcut hint */
     ariaKeyshortcuts?: string
-    /**
-     * Whether the button should take full width
-     */
+    /** Whether the button should take full width */
     block?: boolean
-    /**
-     * Icon class (e.g., i-carbon-add)
-     */
+    /** Icon class (e.g., i-carbon-add) */
     classicon?: string
   }>(),
   {

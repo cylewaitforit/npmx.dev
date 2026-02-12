@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@nuxtjs/storybook'
-import ButtonBase from './Base.vue'
+import Component from './Base.vue'
 
 const meta = {
-  component: ButtonBase,
+  component: Component,
   tags: ['autodocs'],
-} satisfies Meta<typeof ButtonBase>
+} satisfies Meta<typeof Component>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -15,11 +15,11 @@ export const Primary: Story = {
     size: 'medium',
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Primary Button</ButtonBase>',
+    template: '<Component v-bind="args">Primary Button</Component>',
   }),
 }
 
@@ -29,11 +29,11 @@ export const Secondary: Story = {
     size: 'medium',
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Secondary Button</ButtonBase>',
+    template: '<Component v-bind="args">Secondary Button</Component>',
   }),
 }
 
@@ -43,11 +43,11 @@ export const Small: Story = {
     size: 'small',
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Small Button</ButtonBase>',
+    template: '<Component v-bind="args">Small Button</Component>',
   }),
 }
 
@@ -58,11 +58,11 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Disabled Button</ButtonBase>',
+    template: '<Component v-bind="args">Disabled Button</Component>',
   }),
 }
 
@@ -73,11 +73,11 @@ export const WithIcon: Story = {
     classicon: 'i-carbon:search',
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Search</ButtonBase>',
+    template: '<Component v-bind="args">Search</Component>',
   }),
 }
 
@@ -88,11 +88,11 @@ export const WithKeyboardShortcut: Story = {
     ariaKeyshortcuts: '/',
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Search</ButtonBase>',
+    template: '<Component v-bind="args">Search</Component>',
   }),
 }
 
@@ -103,10 +103,10 @@ export const Block: Story = {
     block: true,
   },
   render: args => ({
-    components: { ButtonBase },
+    components: { Component },
     setup() {
       return { args }
     },
-    template: '<ButtonBase v-bind="args">Full Width Button</ButtonBase>',
+    template: '<Component v-bind="args">Full Width Button</Component>',
   }),
 }
