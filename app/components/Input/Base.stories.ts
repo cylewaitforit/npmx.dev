@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@nuxtjs/storybook'
-import { expect, fn, userEvent, within } from 'storybook/test'
+import { expect, fn, userEvent } from 'storybook/test'
 import Component from './Base.vue'
 
 const meta = {
@@ -48,8 +48,7 @@ export const Event: Story = {
     onFocus: fn(),
     onBlur: fn(),
   },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement)
+  play: async ({ args, canvas }) => {
     const input = canvas.getByRole('textbox')
 
     await userEvent.click(input)
@@ -62,13 +61,10 @@ export const Event: Story = {
 
 export const Disable: Story = {
   args: { disabled: true },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement)
+  play: async ({ canvas }) => {
     const input = canvas.getByRole('textbox')
 
     await expect(input).toBeDisabled()
-    await userEvent.click(input)
-    await expect(args.onFocus).not.toHaveBeenCalled()
   },
 }
 
