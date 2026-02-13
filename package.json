@@ -48,7 +48,8 @@
     "test:unit": "vite test --project unit",
     "start:playwright:webserver": "NODE_ENV=test pnpm preview --port 5678",
     "storybook": "STORYBOOK=true storybook dev -p 6006",
-    "build-storybook": "STORYBOOK=true storybook build"
+    "build-storybook": "STORYBOOK=true storybook build",
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@atproto/common": "0.5.10",
@@ -129,6 +130,7 @@
     "@vitest/coverage-v8": "4.0.18",
     "@vue/test-utils": "2.4.6",
     "axe-core": "4.11.1",
+    "chromatic": "15.1.0",
     "defu": "6.1.4",
     "eslint-plugin-regexp": "3.0.0",
     "fast-check": "4.5.3",
