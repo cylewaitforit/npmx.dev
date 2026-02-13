@@ -13,42 +13,24 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     size: 'medium',
+    default: 'Primary Button',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Primary Button</Component>',
-  }),
 }
 
 export const Secondary: Story = {
   args: {
     variant: 'secondary',
     size: 'medium',
+    default: 'Secondary Button',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Secondary Button</Component>',
-  }),
 }
 
 export const Small: Story = {
   args: {
     variant: 'secondary',
     size: 'small',
+    default: 'Small Button',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Small Button</Component>',
-  }),
 }
 
 export const Disabled: Story = {
@@ -56,14 +38,8 @@ export const Disabled: Story = {
     variant: 'primary',
     size: 'medium',
     disabled: true,
+    default: 'Disabled Button',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Disabled Button</Component>',
-  }),
 }
 
 export const WithIcon: Story = {
@@ -77,7 +53,7 @@ export const WithIcon: Story = {
     setup() {
       return { args }
     },
-    template: '<Component v-bind="args">Search</Component>',
+    template: '<Component v-bind="args">{{ $t("search.button") }}</Component>',
   }),
 }
 
@@ -92,7 +68,7 @@ export const WithKeyboardShortcut: Story = {
     setup() {
       return { args }
     },
-    template: '<Component v-bind="args">Search</Component>',
+    template: '<Component v-bind="args">{{ $t("search.button") }}</Component>',
   }),
 }
 
@@ -101,12 +77,6 @@ export const Block: Story = {
     variant: 'primary',
     size: 'medium',
     block: true,
+    default: 'Full Width Button',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Full Width Button</Component>',
-  }),
 }

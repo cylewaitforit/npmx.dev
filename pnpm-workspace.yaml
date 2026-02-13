@@ -37,3 +37,12 @@ patchedDependencies:
 savePrefix: ''
 
 shellEmulator: true
+
+catalogs:
+  storybook:
+    '@nuxtjs/storybook': '^9.0.1'
+    '@storybook/addon-a11y': '^10.2.7'
+    '@storybook/addon-docs': '^10.2.7'
+    '@storybook/addon-themes': '^10.2.7'
+    storybook: '^10.2.7'
+    storybook-i18n: '^10.0.3'

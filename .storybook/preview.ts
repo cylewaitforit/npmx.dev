@@ -1,4 +1,6 @@
 import type { Preview } from '@nuxtjs/storybook'
+import { withThemeByDataAttribute } from '@storybook/addon-themes'
+import { addons } from 'storybook/preview-api'
 import { currentLocales } from '../config/i18n'
 import { fn } from 'storybook/test'
 import { ACCENT_COLORS } from '../shared/utils/constants'
@@ -25,63 +27,45 @@ const preview: Preview = {
       },
     },
   },
+  initialGlobals: {
+    locale: 'en-US',
+    locales: currentLocales.reduce(
+      (acc, locale) => {
+        acc[locale.code] = locale.name
+        return acc
+      },
+      {} as Record<string, string>,
+    ),
+  },
   // Provides toolbars to switch things like theming and language
   globalTypes: {
-    locale: {
-      name: 'Locale',
-      description: 'UI language',
-      defaultValue: 'en-US',
-      toolbar: {
-        icon: 'globe',
-        dynamicTitle: true,
-        items: [
-          // English is at the top so it's easier to reset to it
-          { value: 'en-US', title: 'English (US)' },
-          ...currentLocales
-            .filter(locale => locale.code !== 'en-US')
-            .map(locale => ({ value: locale.code, title: locale.name })),
-        ],
-      },
-    },
     accentColor: {
       name: 'Accent Color',
       description: 'Accent color',
       toolbar: {
         icon: 'paintbrush',
         dynamicTitle: true,
-        items: [
-          ...Object.keys(ACCENT_COLORS.light).map(color => ({
-            value: color,
-            title: color.charAt(0).toUpperCase() + color.slice(1),
-          })),
-          { value: undefined, title: 'No Accent' },
-        ],
-      },
-    },
-    theme: {
-      name: 'Theme',
-      description: 'Color mode',
-      defaultValue: 'dark',
-      toolbar: {
-        icon: 'moon',
-        dynamicTitle: true,
-        items: [
-          { value: 'light', icon: 'sun', title: 'Light' },
-          { value: 'dark', icon: 'moon', title: 'Dark' },
-        ],
+        items: Object.keys(ACCENT_COLORS.light).map(color => ({
+          value: color,
+          title: color.charAt(0).toUpperCase() + color.slice(1),
+        })),
       },
     },
   },
   decorators: [
+    withThemeByDataAttribute({
+      themes: {
+        Light: 'light',
+        Dark: 'dark',
+      },
+      defaultTheme: 'Dark',
+      attributeName: 'data-theme',
+    }),
     (story, context) => {
-      const { locale, theme, accentColor } = context.globals as {
-        locale: string
-        theme: string
+      const { accentColor, locale } = context.globals as {
         accentColor?: string
+        locale?: string
       }
-
-      // Set theme from globals
-      document.documentElement.setAttribute('data-theme', theme)
 
       // Set accent color from globals
       if (accentColor) {
@@ -90,16 +74,24 @@ const preview: Preview = {
         document.documentElement.style.removeProperty('--accent-color')
       }
 
+      // Store reference to i18n instance for locale changes
+      let i18nInstance: any = null
+
+      // Subscribe to locale changes from storybook-i18n addon
+      addons.getChannel().on('LOCALE_CHANGED', (newLocale: string) => {
+        if (i18nInstance) {
+          i18nInstance.setLocale(newLocale)
+        }
+      })
+
       return {
         template: '<story />',
-        // Set locale from globals
         created() {
-          if (this.$i18n) {
-            this.$i18n.setLocale(locale)
-          }
-        },
-        updated() {
-          if (this.$i18n) {
+          // Store i18n instance for LOCALE_CHANGED events
+          i18nInstance = this.$i18n
+
+          // Set initial locale when component is created
+          if (locale && this.$i18n) {
             this.$i18n.setLocale(locale)
           }
         },
