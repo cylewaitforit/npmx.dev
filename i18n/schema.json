@@ -457,6 +457,9 @@
         "copy_name": {
           "type": "string"
         },
+        "copy_version": {
+          "type": "string"
+        },
         "deprecation": {
           "type": "object",
           "properties": {
@@ -954,6 +957,9 @@
             },
             "outdated_patch": {
               "type": "string"
+            },
+            "has_replacement": {
+              "type": "string"
             }
           },
           "additionalProperties": false
@@ -1084,6 +1090,9 @@
             "title": {
               "type": "string"
             },
+            "contributors_skip": {
+              "type": "string"
+            },
             "items": {
               "type": "object",
               "properties": {
@@ -1091,6 +1100,9 @@
                   "type": "string"
                 },
                 "likes": {
+                  "type": "string"
+                },
+                "contributors": {
                   "type": "string"
                 }
               },
