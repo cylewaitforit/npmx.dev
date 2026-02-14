@@ -46,5 +46,8 @@ file-tree-sprite.svg
 # output
 .vercel
 
+# Storybook
 *storybook.log
 storybook-static
+
+.nvmrc
