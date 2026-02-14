@@ -3,7 +3,6 @@ import Component from './Base.vue'
 
 const meta = {
   component: Component,
-  tags: ['autodocs'],
 } satisfies Meta<typeof Component>
 
 export default meta
@@ -11,42 +10,36 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    size: 'medium',
     default: 'Primary Button',
   },
 }
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
-    size: 'medium',
     default: 'Secondary Button',
+    variant: 'secondary',
   },
 }
 
 export const Small: Story = {
   args: {
-    variant: 'secondary',
-    size: 'small',
     default: 'Small Button',
+    size: 'small',
+    variant: 'secondary',
   },
 }
 
 export const Disabled: Story = {
   args: {
-    variant: 'primary',
-    size: 'medium',
-    disabled: true,
     default: 'Disabled Button',
+    disabled: true,
   },
 }
 
 export const WithIcon: Story = {
   args: {
-    variant: 'secondary',
-    size: 'medium',
     classicon: 'i-carbon:search',
+    variant: 'secondary',
   },
   render: args => ({
     components: { Component },
@@ -59,9 +52,8 @@ export const WithIcon: Story = {
 
 export const WithKeyboardShortcut: Story = {
   args: {
-    variant: 'secondary',
-    size: 'medium',
     ariaKeyshortcuts: '/',
+    variant: 'secondary',
   },
   render: args => ({
     components: { Component },
@@ -74,8 +66,6 @@ export const WithKeyboardShortcut: Story = {
 
 export const Block: Story = {
   args: {
-    variant: 'primary',
-    size: 'medium',
     block: true,
     default: 'Full Width Button',
   },

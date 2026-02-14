@@ -4,7 +4,6 @@ import Component from './Base.vue'
 
 const meta = {
   component: Component,
-
   argTypes: {
     disabled: { control: 'boolean' },
     size: {
@@ -13,15 +12,12 @@ const meta = {
     },
     noCorrect: {
       control: 'boolean',
-      description: 'Whether to disable browser autocorrect',
     },
     onFocus: {
       action: 'focus',
-      description: 'Fired when the input gains focus',
     },
     onBlur: {
       action: 'blur',
-      description: 'Fired when the input loses focus',
     },
   },
 } satisfies Meta<typeof Component>
