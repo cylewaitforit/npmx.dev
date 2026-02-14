@@ -4,16 +4,11 @@ import Component from './Base.vue'
 
 const meta = {
   component: Component,
-
   argTypes: {
     disabled: { control: 'boolean' },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-    },
-    noCorrect: {
-      control: 'boolean',
-      description: 'Whether to disable browser autocorrect',
     },
     onFocus: {
       action: 'focus',

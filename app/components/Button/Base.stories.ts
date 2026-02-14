@@ -9,93 +9,52 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {},
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Primary Button</Component>',
-  }),
+  args: {
+    default: 'Primary Button',
+  },
 }
 
 export const Secondary: Story = {
   args: {
+    default: 'Secondary Button',
     variant: 'secondary',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Secondary Button</Component>',
-  }),
 }
 
 export const Small: Story = {
   args: {
-    variant: 'secondary',
+    default: 'Small Button',
     size: 'small',
+    variant: 'secondary',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Small Button</Component>',
-  }),
 }
 
 export const Disabled: Story = {
   args: {
+    default: 'Disabled Button',
     disabled: true,
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Disabled Button</Component>',
-  }),
 }
 
 export const WithIcon: Story = {
   args: {
-    variant: 'secondary',
+    default: 'Search',
     classicon: 'i-carbon:search',
+    variant: 'secondary',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Search</Component>',
-  }),
 }
 
 export const WithKeyboardShortcut: Story = {
   args: {
-    variant: 'secondary',
     ariaKeyshortcuts: '/',
+    default: 'Search',
+    variant: 'secondary',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Search</Component>',
-  }),
 }
 
 export const Block: Story = {
   args: {
     block: true,
+    default: 'Full Width Button',
   },
-  render: args => ({
-    components: { Component },
-    setup() {
-      return { args }
-    },
-    template: '<Component v-bind="args">Full Width Button</Component>',
-  }),
 }
