@@ -875,6 +875,16 @@ const showSkeleton = shallowRef(false)
             >
               <span class="max-sm:sr-only">{{ $t('package.links.compare') }}</span>
             </LinkBase>
+            <LinkBase
+              v-if="
+                displayVersion && latestVersion && displayVersion.version !== latestVersion.version
+              "
+              variant="button-secondary"
+              :to="diffRoute(pkg.name, displayVersion.version, latestVersion.version)"
+              classicon="i-lucide:diff"
+            >
+              {{ $t('compare.compare_versions') }}
+            </LinkBase>
             <ButtonBase
               v-if="showScrollToTop"
               variant="secondary"
@@ -1006,6 +1016,39 @@ const showSkeleton = shallowRef(false)
               <LinkBase :to="fundingUrl" classicon="i-lucide:heart">
                 {{ $t('package.links.fund') }}
               </LinkBase>
+            </li>
+            <!-- Mobile-only: Docs + Code + Compare links -->
+            <li v-if="docsLink && displayVersion" class="sm:hidden">
+              <LinkBase :to="docsLink" classicon="i-lucide:file-text">
+                {{ $t('package.links.docs') }}
+              </LinkBase>
+            </li>
+            <li v-if="resolvedVersion && codeLink" class="sm:hidden">
+              <LinkBase :to="codeLink" classicon="i-lucide:code">
+                {{ $t('package.links.code') }}
+              </LinkBase>
+            </li>
+            <li class="sm:hidden">
+              <LinkBase
+                :to="{ name: 'compare', query: { packages: pkg.name } }"
+                classicon="i-lucide:git-compare"
+              >
+                {{ $t('package.links.compare') }}
+              </LinkBase>
+            </li>
+            <li
+              v-if="
+                displayVersion && latestVersion && displayVersion.version !== latestVersion.version
+              "
+              class="sm:hidden"
+            >
+              <NuxtLink
+                :to="diffRoute(pkg.name, displayVersion.version, latestVersion.version)"
+                class="link-subtle font-mono text-sm inline-flex items-center gap-1.5"
+              >
+                <span class="i-lucide:diff w-4 h-4" aria-hidden="true" />
+                {{ $t('compare.compare_versions') }}
+              </NuxtLink>
             </li>
           </ul>
         </div>
