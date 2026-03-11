@@ -86,8 +86,8 @@ export const WithIcons: Story = {
         code: `
         <template>
             <ButtonGroup>
+                <ButtonBase variant="secondary" classicon="i-lucide:x">Close</ButtonBase>
                 <ButtonBase variant="secondary" classicon="i-lucide:search">Search</ButtonBase>
-                <ButtonBase variant="secondary" classicon="i-lucide:x">Back</ButtonBase>
             </ButtonGroup>
         </template>
         `,
@@ -98,8 +98,8 @@ export const WithIcons: Story = {
     components: { ButtonBase, ButtonGroup },
     template: `
       <ButtonGroup>
-        <ButtonBase variant="secondary" classicon="i-lucide:search">{{ $t('search.button') }}</ButtonBase>
-        <ButtonBase variant="secondary" classicon="i-lucide:x">{{ $t('nav.back') }}</ButtonBase>
+        <ButtonBase variant="secondary" classicon="i-lucide:x">{{ $t('common.close') }}</ButtonBase>
+        <ButtonBase variant="secondary" classicon="i-lucide:search">{{ $t('filters.search') }}</ButtonBase>
       </ButtonGroup>
     `,
   }),
