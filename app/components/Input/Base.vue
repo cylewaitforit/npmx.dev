@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { noCorrect } from '~/utils/input'
 
+/**
+ * A base input component that supports multiple sizes, states, and keyboard shortcuts.
+ */
+defineOptions({
+  name: 'InputBase',
+})
+
 const model = defineModel<string>({ default: '' })
 
 const props = withDefaults(

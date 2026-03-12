@@ -5,19 +5,13 @@ import InputBase from './Base.vue'
 const meta = {
   component: InputBase,
   argTypes: {
-    disabled: { control: 'boolean' },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
     },
-    noCorrect: {
-      control: 'boolean',
-    },
-    onFocus: {
-      action: 'focus',
-    },
-    onBlur: {
-      action: 'blur',
+    modelValue: {
+      description: 'The model input value. Uses v-model to bind it.',
+      type: 'string',
     },
   },
   tags: ['autodocs'],
@@ -26,19 +20,60 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Snapshot: Story = {
-  render: () => ({
-    template: `
-      <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
-          <InputBase size="small" model-value="Small input" />
-          <InputBase size="medium" model-value="Medium input" />
-          <InputBase size="large" model-value="Large input" />
-          <InputBase size="large" model-value="disabled" disabled />
-      </div>
-    `,
-    components: { InputBase },
-  }),
+export const Default = {} satisfies Story
+
+export const WithModelValue = {
+  args: {
+    modelValue: 'Model Value',
+  },
+} satisfies Story
+
+export const Small = {
+  args: {
+    size: 'small',
+  },
+} satisfies Story
+
+export const SmallWithModelValue = {
+  args: {
+    size: 'small',
+    modelValue: 'Small input',
+  },
+} satisfies Story
+
+export const Large = {
+  args: {
+    size: 'large',
+  },
+} satisfies Story
+
+export const LargeWithModelValue = {
+  args: {
+    size: 'large',
+    modelValue: 'Large input',
+  },
+} satisfies Story
+
+export const Disable: Story = {
+  args: { disabled: true },
+  play: async ({ canvas }) => {
+    const input = canvas.getByRole('textbox')
+
+    await expect(input).toBeDisabled()
+  },
 }
+
+export const DisabledWithModelValue = {
+  args: {
+    disabled: true,
+    modelValue: 'Disabled input',
+  },
+  play: async ({ canvas }) => {
+    const input = canvas.getByRole('textbox')
+
+    await expect(input).toBeDisabled()
+  },
+} satisfies Story
 
 export const Event: Story = {
   args: {
@@ -53,15 +88,6 @@ export const Event: Story = {
 
     await userEvent.tab()
     await expect(args.onBlur).toHaveBeenCalled()
-  },
-}
-
-export const Disable: Story = {
-  args: { disabled: true },
-  play: async ({ canvas }) => {
-    const input = canvas.getByRole('textbox')
-
-    await expect(input).toBeDisabled()
   },
 }
 
