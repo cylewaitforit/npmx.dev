@@ -2,6 +2,13 @@
 import type { NuxtLinkProps } from '#app'
 import type { IconClass } from '~/types'
 
+/**
+ * A base link component that supports both internal and external links, with different visual styles and accessibility features.
+ */
+defineOptions({
+  name: 'LinkBase',
+})
+
 const props = withDefaults(
   defineProps<{
     /** Disabled links will be displayed as plain text */

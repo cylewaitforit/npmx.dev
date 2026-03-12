@@ -7,6 +7,21 @@ const meta = {
     to: '/',
     default: 'Click me',
   },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['link', 'button-primary', 'button-secondary'],
+    },
+    size: {
+      control: 'select',
+      options: ['medium', 'small'],
+    },
+    type: { control: false },
+    target: { control: false },
+    href: { control: false },
+    rel: { control: false },
+  },
+  tags: ['autodocs'],
 } satisfies Meta<typeof LinkBase>
 
 export default meta
@@ -101,32 +116,4 @@ export const DisabledButton: Story = {
     disabled: true,
     default: 'Disabled Button',
   },
-}
-
-export const Snapshot: Story = {
-  render: () => ({
-    template: `
-      <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
-        <LinkBase to="/">Default Link</LinkBase>
-        <LinkBase to="https://example.com">External Link</LinkBase>
-        <LinkBase to="#section">Anchor Link</LinkBase>
-        <LinkBase to="/" classicon="i-lucide:check">Link with icon</LinkBase>
-        <LinkBase to="/" no-underline>Link without underline</LinkBase>
-        <LinkBase to="/" disabled>Disabled Link</LinkBase>
-        
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <LinkBase to="/" variant="button-primary">Primary</LinkBase>
-          <LinkBase to="/" variant="button-secondary">Secondary</LinkBase>
-          <LinkBase to="/" variant="button-primary" disabled>Disabled</LinkBase>
-          <LinkBase to="/" variant="button-primary" classicon="i-lucide:copy">With Icon</LinkBase>
-        </div>
-        
-        <div style="display: flex; gap: 1rem;">
-          <LinkBase to="/" variant="button-primary" size="small">Small Button</LinkBase>
-        </div>
-        <LinkBase to="/" variant="button-primary" block>Full Width Button</LinkBase>
-      </div>
-    `,
-    components: { LinkBase },
-  }),
 }
