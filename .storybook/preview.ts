@@ -21,9 +21,7 @@ globalThis.defineOgImageComponent = fn()
 // Subscribe to locale changes from storybook-i18n addon (once, outside decorator)
 let currentI18nInstance: any = null
 addons.getChannel().on('LOCALE_CHANGED', (newLocale: string) => {
-  if (currentI18nInstance) {
-    currentI18nInstance.setLocale(newLocale)
-  }
+  currentI18nInstance?.setLocale(newLocale)
 })
 
 const preview: Preview = {
