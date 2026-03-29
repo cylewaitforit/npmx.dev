@@ -9,6 +9,9 @@
     "url": "https://roe.dev"
   },
   "type": "module",
+  "imports": {
+    "#storybook/*": "./.storybook/*"
+  },
   "scripts": {
     "build": "nuxt build",
     "build:test": "NODE_ENV=test vp run build",
