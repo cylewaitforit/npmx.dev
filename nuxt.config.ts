@@ -1,5 +1,6 @@
 import process from 'node:process'
 import { currentLocales } from './config/i18n'
+import { fontFamilies } from './config/fonts'
 import { isCI, isTest, provider } from 'std-env'
 
 const isStorybook = process.env.STORYBOOK === 'true' || process.env.VITEST_STORYBOOK === 'true'
@@ -264,20 +265,12 @@ export default defineNuxtConfig({
     providers: {
       fontshare: false,
     },
-    families: [
-      {
-        name: 'Geist',
-        weights: ['400', '500', '600'],
-        preload: true,
-        global: true,
-      },
-      {
-        name: 'Geist Mono',
-        weights: ['400', '500'],
-        preload: true,
-        global: true,
-      },
-    ],
+    families: fontFamilies.map(({ name, variants, preload, global: isGlobal }) => ({
+      name,
+      weights: variants.map(v => String(v.weight)),
+      preload,
+      global: isGlobal,
+    })),
   },
 
   htmlValidator: {
