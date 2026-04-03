@@ -767,12 +767,10 @@
   "code": {
     "files_label": "Soubory",
     "no_files": "Žádné soubory v této složce",
-    "root": "kořen",
     "lines": "{count} řádků",
     "toggle_tree": "Přepnout strom souborů",
     "close_tree": "Zavřít strom souborů",
     "copy_link": "Kopírovat odkaz",
-    "raw": "Raw",
     "view_raw": "Zobrazit raw soubor",
     "file_too_large": "Soubor je příliš velký pro náhled",
     "file_size_warning": "{size} překračuje limit 500KB pro zvýraznění syntaxe",
@@ -1065,14 +1063,11 @@
       "add_column": "Přidat sloupec bez závislosti do porovnání"
     },
     "facets": {
-      "group_label": "Kategorie vlastností",
       "all": "Vše",
       "none": "Žádné",
       "coming_soon": "Brzy k dispozici",
       "select_all": "Vybrat všechny vlastnosti",
       "deselect_all": "Zrušit výběr všech vlastností",
-      "select_category": "Vybrat všechny vlastnosti kategorie {category}",
-      "deselect_category": "Zrušit výběr všech vlastností kategorie {category}",
       "binary_only_tooltip": "Tento balíček obsahuje pouze binární soubory a žádné exporty",
       "categories": {
         "performance": "Výkon",
