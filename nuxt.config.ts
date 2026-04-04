@@ -351,7 +351,6 @@ export default defineNuxtConfig({
         allowImportingTsExtensions: true,
         paths: {
           '#cli/*': ['../cli/src/*'],
-          '#storybook/*': ['../.storybook/*'],
         },
       },
       include: ['../test/unit/app/**/*.ts'],

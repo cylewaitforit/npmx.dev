@@ -1,6 +1,6 @@
 import Accessibility from './accessibility.vue'
 import type { Meta, StoryObj } from '@storybook-vue/nuxt'
-import { pageDecorator } from '#storybook/decorators'
+import { pageDecorator } from '../../.storybook/decorators'
 
 const meta = {
   component: Accessibility,
