@@ -67,7 +67,8 @@ const config = {
         // Lazy/island wrappers (LazyComponent<T>, IslandComponent<T>) are
         // excluded intentionally — Storybook only needs the concrete type.
         // The format has been stable across all Nuxt 3 releases.
-        const re = /^export const (\w+): typeof import\("([^"]+)"\)\.default$/gm
+        const re =
+          /^export const (\w+): typeof import\("([^"]+)"\)(?:\.default|\[['"]default['"]\])\s*;?$/gm
         let match: RegExpExecArray | null
         while ((match = re.exec(dts)) !== null) {
           const [, name, rel] = match
