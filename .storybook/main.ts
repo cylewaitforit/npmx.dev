@@ -54,37 +54,33 @@ const config = {
       },
       load(id) {
         if (id !== '\0virtual:#components') return
-        if (!buildDir) return 'export {}'
+        if (!buildDir) {
+          throw new Error('[storybook-nuxt-components] Could not resolve the `#build` alias.')
+        }
         const dtsPath = resolve(buildDir, 'components.d.ts')
         // Wire the generated declaration file into Vite's file-watch graph so
         // that the virtual module is invalidated when Nuxt regenerates it.
         this.addWatchFile(dtsPath)
-        try {
-          const dts = readFileSync(dtsPath, 'utf-8')
-          const lines: string[] = []
-          // Match only the direct `typeof import("…").default` form.
-          // Lazy/island wrappers (LazyComponent<T>, IslandComponent<T>) are
-          // excluded intentionally — Storybook only needs the concrete type.
-          // The format has been stable across all Nuxt 3 releases; if it ever
-          // changes, the exports array will simply be empty and Storybook will
-          // fall back to direct imports from `~/components`.
-          const re = /^export const (\w+): typeof import\("([^"]+)"\)\.default$/gm
-          let match: RegExpExecArray | null
-          while ((match = re.exec(dts)) !== null) {
-            const [, name, rel] = match
-            if (!name || !rel) continue
-            const abs = resolve(buildDir, rel).replaceAll('\\', '/')
-            lines.push(`export { default as ${name} } from ${JSON.stringify(abs)}`)
-          }
-          return lines.join('\n') || 'export {}'
-        } catch (err) {
-          // oxlint-disable-next-line no-console -- Log and swallow errors to avoid breaking the Storybook build when components.d.ts is missing or malformed.
-          console.warn(
-            '[storybook-nuxt-components] Failed to build #components virtual module:',
-            err,
-          )
-          return 'export {}'
+        const dts = readFileSync(dtsPath, 'utf-8')
+        const lines: string[] = []
+        // Match only the direct `typeof import("…").default` form.
+        // Lazy/island wrappers (LazyComponent<T>, IslandComponent<T>) are
+        // excluded intentionally — Storybook only needs the concrete type.
+        // The format has been stable across all Nuxt 3 releases.
+        const re = /^export const (\w+): typeof import\("([^"]+)"\)\.default$/gm
+        let match: RegExpExecArray | null
+        while ((match = re.exec(dts)) !== null) {
+          const [, name, rel] = match
+          if (!name || !rel) continue
+          const abs = resolve(buildDir, rel).replaceAll('\\', '/')
+          lines.push(`export { default as ${name} } from ${JSON.stringify(abs)}`)
         }
+        if (lines.length === 0) {
+          throw new Error(
+            `[storybook-nuxt-components] No component exports were found in ${dtsPath}.`,
+          )
+        }
+        return lines.join('\n')
       },
     })
 
