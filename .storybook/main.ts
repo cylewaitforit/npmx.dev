@@ -73,7 +73,7 @@ const config = {
           while ((match = re.exec(dts)) !== null) {
             const [, name, rel] = match
             if (!name || !rel) continue
-            const abs = resolve(buildDir, rel)
+            const abs = resolve(buildDir, rel).replaceAll('\\', '/')
             lines.push(`export { default as ${name} } from ${JSON.stringify(abs)}`)
           }
           return lines.join('\n') || 'export {}'
