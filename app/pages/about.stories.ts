@@ -7,6 +7,9 @@ const meta = {
   component: About,
   parameters: {
     layout: 'fullscreen',
+    msw: {
+      handlers: [contributorsHandler],
+    },
   },
   decorators: [pageDecorator],
 } satisfies Meta<typeof About>
@@ -14,17 +17,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-/** Contributors section is hidden when there is no API response but the rest of the page renders. */
+/** `/api/contributors` is intercepted by MSW so both governance members and community contributors sections are populated. */
 export const Default: Story = {}
 
-/**
- * WithContributors — the `/api/contributors` endpoint is intercepted by MSW
- * so the governance members and community contributors sections are populated.
- */
-export const WithContributors: Story = {
+/** Contributors section is hidden with no API response. */
+export const WithoutContributors: Story = {
   parameters: {
     msw: {
-      handlers: [contributorsHandler],
+      handlers: [],
     },
   },
 }

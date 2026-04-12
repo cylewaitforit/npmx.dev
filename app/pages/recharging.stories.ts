@@ -7,6 +7,9 @@ const meta = {
   component: Recharging,
   parameters: {
     layout: 'fullscreen',
+    msw: {
+      handlers: [repoStatsHandler],
+    },
   },
   decorators: [pageDecorator],
 } satisfies Meta<typeof Recharging>
@@ -14,17 +17,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-/** The stats grid is hidden when there is no API response but the rest of the page renders. */
+/** `/api/repo-stats` is intercepted by MSW so the three-column stats grid (contributors, commits, pull requests) is visible. */
 export const Default: Story = {}
 
-/**
- * WithStats — the `/api/repo-stats` endpoint is intercepted by MSW so the
- * three-column stats grid (contributors, commits, pull requests) becomes visible.
- */
-export const WithStats: Story = {
+/** Stats grid is hidden with no API response; the rest of the page renders normally. */
+export const WithoutStats: Story = {
   parameters: {
     msw: {
-      handlers: [repoStatsHandler],
+      handlers: [],
     },
   },
 }
