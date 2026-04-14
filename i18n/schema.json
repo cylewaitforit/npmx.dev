@@ -3984,6 +3984,42 @@
                     }
                   },
                   "additionalProperties": false
+                },
+                "githubStars": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "githubIssues": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "createdAt": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
                 }
               },
               "additionalProperties": false
