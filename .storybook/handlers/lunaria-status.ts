@@ -174,7 +174,7 @@ export const i18nStatusHandler = http.get('/lunaria/status.json', () => {
           'settings.accessibility',
           'settings.notifications',
           'settings.privacy',
-          'package.license',
+          'package.scripts',
           'package.homepage',
           'package.repository',
           'package.keywords',
