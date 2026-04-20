@@ -1,7 +1,7 @@
 import TranslationStatus from './translation-status.vue'
 import type { Meta, StoryObj } from '@storybook-vue/nuxt'
 import { pageDecorator } from '../../.storybook/decorators'
-import { i18nStatusHandler } from '../../.storybook/handlers/lunaria-status'
+import { i18nStatusHandler } from '../storybook/mocks/handlers/lunaria-status'
 
 const meta = {
   component: TranslationStatus,
