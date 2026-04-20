@@ -73,7 +73,7 @@ export const LongMessage: Story = {
     error: {
       status: 500,
       message:
-        'An unexpected error occurred while processing your request. Our team has been notified and is working to resolve the issue. Please try again in a few moments.',
+        'Internal server error. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique ex ac nisi dapibus maximus. Curabitur feugiat lorem eros, sed eleifend purus facilisis at.',
     } as NuxtError,
   },
 }
