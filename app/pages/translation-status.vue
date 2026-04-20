@@ -62,7 +62,7 @@ ${template}`
         </div>
         <p class="text-fg-muted text-lg">
           <template v-if="isLoading || !generatedAt">
-            <SkeletonInline class="h-6 w-48" />
+            <SkeletonInline class="h-6 w-96" />
           </template>
           <i18n-t v-else keypath="translation_status.generated_at" tag="span" scope="global">
             <template #date>
