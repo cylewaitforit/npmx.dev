@@ -40,11 +40,11 @@ export const ServerError: Story = {
   },
 }
 
-/** Bad gateway - occurs when external services (jsDelivr, npm registry) fail. */
-export const BadGateway: Story = {
+/** Service unavailable - occurs when external services (jsDelivr, npm registry) fail. */
+export const ServiceUnavailable: Story = {
   args: {
     error: {
-      status: 502,
+      status: 503,
     } as NuxtError,
   },
 }
