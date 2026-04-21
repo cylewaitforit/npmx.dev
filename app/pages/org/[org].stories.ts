@@ -32,9 +32,15 @@ export const Default: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().replace('/org/npmx')
+      const isReady = ref(false)
+      useRouter()
+        .replace('/org/npmx')
+        .then(() => {
+          isReady.value = true
+        })
+      return { isReady }
     },
-    template: '<Org />',
+    template: '<Org v-if="isReady" />',
   }),
 }
 
@@ -49,9 +55,15 @@ export const SinglePackage: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().replace('/org/single-org')
+      const isReady = ref(false)
+      useRouter()
+        .replace('/org/single-org')
+        .then(() => {
+          isReady.value = true
+        })
+      return { isReady }
     },
-    template: '<Org />',
+    template: '<Org v-if="isReady" />',
   }),
 }
 
@@ -66,9 +78,15 @@ export const EmptyOrg: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().replace('/org/empty-org')
+      const isReady = ref(false)
+      useRouter()
+        .replace('/org/empty-org')
+        .then(() => {
+          isReady.value = true
+        })
+      return { isReady }
     },
-    template: '<Org />',
+    template: '<Org v-if="isReady" />',
   }),
 }
 
@@ -83,9 +101,15 @@ export const NotFound: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().replace('/org/nonexistent-org')
+      const isReady = ref(false)
+      useRouter()
+        .replace('/org/nonexistent-org')
+        .then(() => {
+          isReady.value = true
+        })
+      return { isReady }
     },
-    template: '<Org />',
+    template: '<Org v-if="isReady" />',
   }),
 }
 
@@ -100,8 +124,14 @@ export const Loading: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().replace('/org/npmx')
+      const isReady = ref(false)
+      useRouter()
+        .replace('/org/npmx')
+        .then(() => {
+          isReady.value = true
+        })
+      return { isReady }
     },
-    template: '<Org />',
+    template: '<Org v-if="isReady" />',
   }),
 }
