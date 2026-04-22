@@ -32,7 +32,7 @@ export const Default: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter.push('/org/npmx')
+      useRouter().replace('/org/npmx')
     },
     template: '<Org />',
   }),
@@ -49,7 +49,7 @@ export const SinglePackage: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().push('/org/single-org')
+      useRouter().replace('/org/single-org')
     },
     template: '<Org />',
   }),
@@ -66,7 +66,7 @@ export const EmptyOrg: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().push('/org/empty-org')
+      useRouter().replace('/org/empty-org')
     },
     template: '<Org />',
   }),
@@ -83,7 +83,7 @@ export const NotFound: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().push('/org/nonexistent-org')
+      useRouter().replace('/org/nonexistent-org')
     },
     template: '<Org />',
   }),
@@ -100,7 +100,7 @@ export const Loading: Story = {
   render: () => ({
     components: { Org },
     setup() {
-      useRouter().push('/org/npmx')
+      useRouter().replace('/org/npmx')
     },
     template: '<Org />',
   }),
