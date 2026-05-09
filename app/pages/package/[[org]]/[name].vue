@@ -204,6 +204,7 @@ const {
   error,
 } = usePackage(packageName, () => resolvedVersion.value ?? requestedVersion.value)
 
+const { data: licenseChangeData } = useLicenseChanges(packageName, resolvedVersion)
 const { diff: sizeDiff } = useInstallSizeDiff(packageName, resolvedVersion, pkg, installSize)
 const { versions: commandPaletteVersions, ensureLoaded: ensureCommandPaletteVersionsLoaded } =
   useCommandPalettePackageVersions(packageName)
@@ -909,6 +910,8 @@ const showSkeleton = shallowRef(false)
         </section>
 
         <div class="space-y-6" :class="$style.areaVulns">
+          <!-- license change warning -->
+          <LicenseChangeWarning :change="licenseChangeData?.change ?? null" />
           <!-- Bad package warning -->
           <PackageReplacement
             v-if="moduleReplacement"
