@@ -1,4 +1,5 @@
 import { http, HttpResponse } from 'msw'
+import type { LikesLeaderboardEntry } from '#shared/types/social'
 
 export const likesLeaderboardEntries = [
   {
@@ -151,7 +152,7 @@ export const likesLeaderboardEntries = [
     homepageLogoWidth: null,
     homepageLogoHeight: null,
   },
-]
+] satisfies LikesLeaderboardEntry[]
 
 export const likesLeaderboardHandler = http.get('/api/leaderboard/likes', () => {
   return HttpResponse.json(likesLeaderboardEntries)

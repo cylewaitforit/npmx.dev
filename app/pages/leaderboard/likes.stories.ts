@@ -37,8 +37,8 @@ export const PodiumOnly: Story = {
   },
 }
 
-/** No API response — `useFetch` falls back to its `default: () => []`, showing the "unavailable" card. */
-export const Empty: Story = {
+/** Unavailable card is shown with no API response; `useFetch` falls back to its `default: () => []`. */
+export const WithoutEntries: Story = {
   parameters: {
     msw: {
       handlers: [],
