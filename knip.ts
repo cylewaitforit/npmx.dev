@@ -1,6 +1,7 @@
 import type { KnipConfig } from 'knip'
 
 const config: KnipConfig = {
+  treatConfigHintsAsErrors: true,
   workspaces: {
     '.': {
       entry: [
@@ -30,9 +31,6 @@ const config: KnipConfig = {
         'puppeteer',
         'vite-plugin-pwa',
         '@vueuse/shared',
-
-        /** Some components import types from here, but installing it directly could lead to a version mismatch */
-        'vue-router',
 
         /** Oxlint plugins don't get picked up yet */
         '@e18e/eslint-plugin',
