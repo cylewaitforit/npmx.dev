@@ -24,6 +24,7 @@ catalogs:
     '@storybook/addon-a11y': '^10.6.0'
     '@storybook/addon-docs': '^10.6.0'
     '@storybook/addon-themes': '^10.6.0'
+    'eslint-plugin-storybook': '^10.6.0'
     'msw-storybook-addon': '^3.0.0'
     'storybook': '^10.6.0'
     'storybook-i18n': '^10.1.1'

@@ -73,7 +73,7 @@ export default defineConfig({
   },
   lint: {
     plugins: ['unicorn', 'typescript', 'oxc', 'vue', 'vitest'],
-    jsPlugins: ['@e18e/eslint-plugin', 'eslint-plugin-regexp'],
+    jsPlugins: ['@e18e/eslint-plugin', 'eslint-plugin-regexp', 'eslint-plugin-storybook'],
     categories: {
       correctness: 'error',
       suspicious: 'warn',
@@ -158,6 +158,36 @@ export default defineConfig({
       'regexp/sort-flags': 'warn',
     },
     overrides: [
+      {
+        files: ['**/*.stories.{ts,tsx,js,jsx,mjs,cjs}', '**/*.story.{ts,tsx,js,jsx,mjs,cjs}'],
+        rules: {
+          'storybook/meta-satisfies-type': 'error',
+          'storybook/meta-inline-properties': 'error',
+          // Storybook - Recommended
+          'storybook/await-interactions': 'error',
+          'storybook/context-in-play-function': 'error',
+          'storybook/default-exports': 'error',
+          'storybook/hierarchy-separator': 'error',
+          'storybook/no-redundant-story-name': 'error',
+          'storybook/no-renderer-packages': 'error',
+          'storybook/prefer-pascal-case': 'error',
+          'storybook/story-exports': 'error',
+          'storybook/use-storybook-expect': 'error',
+          'storybook/use-storybook-testing-library': 'error',
+          // Storybook - CSF
+          'storybook/csf-component': 'error',
+          // Storybook - CSF Strict
+          'storybook/no-stories-of': 'error',
+          'storybook/no-title-property-in-meta': 'error',
+        },
+      },
+      {
+        files: ['.storybook/main.{js,cjs,mjs,ts}'],
+        rules: {
+          // Storybook - Recommended
+          'storybook/no-uninstalled-addons': 'error',
+        },
+      },
       {
         files: [
           'server/**/*',

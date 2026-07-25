@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook-vue/nuxt'
 import type { NuxtError } from '#app'
 
 const meta = {
-  title: 'pages/error',
   component: Error,
   parameters: {
     layout: 'fullscreen',

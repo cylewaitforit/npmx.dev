@@ -4,6 +4,11 @@ const config = {
   stories: [
     // List welcome first in sidebar
     '../app/storybook/welcome.mdx',
+    {
+      directory: '../app',
+      files: 'error.stories.ts',
+      titlePrefix: 'pages',
+    },
     '../app/**/*.@(mdx|stories.@(js|ts))',
   ],
   addons: [
