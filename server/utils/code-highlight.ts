@@ -135,19 +135,19 @@ function getPackageName(specifier: string): string {
 /**
  * Resolved dependency info for linking imports to specific versions
  */
-export interface ResolvedDependency {
+interface ResolvedDependency {
   version: string
 }
 
 /**
  * Map of package name to resolved version for import linking
  */
-export type DependencyVersions = Record<string, ResolvedDependency>
+type DependencyVersions = Record<string, ResolvedDependency>
 
 /**
  * Function to resolve relative imports to URLs
  */
-export type RelativeImportResolver = (specifier: string) => string | null
+type RelativeImportResolver = (specifier: string) => string | null
 
 interface LinkifyOptions {
   dependencies?: DependencyVersions

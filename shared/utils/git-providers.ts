@@ -30,7 +30,7 @@ export interface RepositoryInfo extends RepoRef {
 }
 
 /** Known GitLab instances (self-hosted) */
-export const GITLAB_HOSTS = [
+const GITLAB_HOSTS = [
   'gitlab.com',
   'gitlab.gnome.org',
   'gitlab.freedesktop.org',
@@ -44,12 +44,12 @@ export const GITLAB_HOSTS = [
  * is effectively user-controlled input that can point at a malicious user-controlled server, this
  * would put us at risk of Server-Side Request Forgery (SSRF). Thus we only support allowlisted hosts.
  */
-export const FORGEJO_HOSTS = ['next.forgejo.org', 'try.next.forgejo.org', 'code.haverbeke.berlin']
+const FORGEJO_HOSTS = ['next.forgejo.org', 'try.next.forgejo.org', 'code.haverbeke.berlin']
 
 /**
  * No open-ended Gitea host detection for the same reason as Forgejo above.
  */
-export const GITEA_HOSTS = ['gitea.com']
+const GITEA_HOSTS = ['gitea.com']
 
 interface ProviderConfig {
   id: ProviderId
@@ -399,10 +399,6 @@ export function parseRepositoryInfo(
   }
 }
 
-export function getProviderConfig(providerId: ProviderId): ProviderConfig | undefined {
-  return providers.find(p => p.id === providerId)
-}
-
 export function convertBlobOrFileToRawUrl(url: string, providerId: ProviderId): string {
   const provider = providers.find(p => p.id === providerId)
   let rawUrl = url
@@ -413,10 +409,6 @@ export function convertBlobOrFileToRawUrl(url: string, providerId: ProviderId): 
     rawUrl = provider.blobToRaw(rawUrl)
   }
   return rawUrl
-}
-
-export function isKnownGitProvider(url: string): boolean {
-  return parseRepoUrl(url) !== null
 }
 
 /**
