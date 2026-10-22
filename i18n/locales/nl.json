@@ -1809,18 +1809,10 @@
     "p2": "Voordat u begint, raden we u aan onze {guide} te lezen om meer te weten te komen over ons vertaalproces en hoe u hieraan kunt bijdragen.",
     "guide": "Handleiding voor lokalisatie (i18n)",
     "by_locale": "Voortgang van de vertaling per taal",
-    "by_file": "Voortgang van de vertaling per bestand",
     "complete_text": "Deze vertaling is compleet, fantastisch werk!",
     "missing_text": "ontbrekend",
     "missing_keys": "Er ontbreken geen vertalingen | Ontbrekende vertaling | Ontbrekende vertalingen",
-    "progress_label": "Voortgangsstatus voor {locale}",
-    "table": {
-      "file": "Bestand",
-      "status": "Status",
-      "error": "Fout bij het laden van de bestandslijst.",
-      "empty": "Geen bestanden gevonden",
-      "file_link": "Bewerk {file} ({lang}) op GitHub"
-    }
+    "progress_label": "Voortgangsstatus voor {locale}"
   },
   "vacations": {
     "title": "op vakantie",
