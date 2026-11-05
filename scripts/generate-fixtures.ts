@@ -8,6 +8,7 @@
  * Usage:
  *   pnpm generate:fixtures           # Generate all fixtures
  *   pnpm generate:fixtures vue nuxt  # Generate specific packages only
+ *   pnpm generate:fixtures --doc-nodes  # Generate only the `@deno/doc` node fixtures
  *
  * A full run also regenerates the `@deno/doc` node fixtures from the real output of the
  * installed `@deno/doc` version.
@@ -491,6 +492,13 @@ async function generateDocNodeFixtures(): Promise<void> {
 
 async function main(): Promise<void> {
   const args = process.argv.slice(2)
+
+  if (args.includes('--doc-nodes')) {
+    console.log('\n=== Generating Doc Node Fixtures ===\n')
+    await generateDocNodeFixtures()
+    console.log('\n=== Fixture Generation Complete ===\n')
+    return
+  }
 
   // If specific packages are provided, only generate those
   const specificPackages = args.filter(arg => !arg.startsWith('-'))
