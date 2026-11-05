@@ -8,10 +8,15 @@
  * Usage:
  *   pnpm generate:fixtures           # Generate all fixtures
  *   pnpm generate:fixtures vue nuxt  # Generate specific packages only
+ *
+ * A full run also regenerates the `@deno/doc` node fixtures from the real output of the
+ * installed `@deno/doc` version.
  */
 
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { isBuiltin } from 'node:module'
 import { dirname, join } from 'node:path'
+import { doc } from '@deno/doc'
 
 const FIXTURES_DIR = join(import.meta.dirname, '../test/fixtures')
 
@@ -75,6 +80,52 @@ const REQUIRED_ESM_TYPES: Record<string, string> = {
   'ufo': '1.6.3',
   'is-odd': '3.0.1',
 }
+
+/**
+ * Documentation nodes saved as fixtures for the docs formatting tests.
+ * `@deno/doc` runs on the type declaration file and the node named `name` is saved.
+ */
+interface DocNodeFixture {
+  /** Fixture file name, without the extension */
+  file: string
+  /** Type declaration file to document */
+  url: string
+  /** Name of the exported node to save */
+  name: string
+}
+
+const REQUIRED_DOC_NODES: DocNodeFixture[] = [
+  {
+    file: 'linkdave@0.0.2-client',
+    url: 'https://esm.sh/linkdave@0.0.2/dist/client.d.ts',
+    name: 'LinkDaveClient',
+  },
+  {
+    file: 'linkdave@0.0.2-send-to-shard',
+    url: 'https://esm.sh/linkdave@0.0.2/dist/client.d.ts',
+    name: 'SendToShardFn',
+  },
+  {
+    file: 'linkdave@0.0.2-client-message',
+    url: 'https://esm.sh/linkdave@0.0.2/dist/types.d.ts',
+    name: 'ClientMessage',
+  },
+  {
+    file: 'linkdave@0.0.2-manager-events',
+    url: 'https://esm.sh/linkdave@0.0.2/dist/types.d.ts',
+    name: 'ManagerEvents',
+  },
+  {
+    file: 'linkdave@0.0.2-pick-type',
+    url: 'https://esm.sh/linkdave@0.0.2/dist/player.d.ts',
+    name: 'RawVoiceServerUpdate',
+  },
+  {
+    file: 'tanstack-highlight@0.0.9-create-highlighter',
+    url: 'https://esm.sh/@tanstack/highlight@0.0.9/dist/core.d.ts',
+    name: 'createHighlighter',
+  },
+]
 
 // ============================================================================
 // Utility Functions
@@ -382,6 +433,58 @@ async function generateEsmTypesFixture(packageName: string, version: string): Pr
   }
 }
 
+const IS_SOURCE_MAP = /\.(?:js|mjs|cjs|d\.[mc]?ts)\.map(?:[?#].*)?$/
+
+// Mirrors the loader and resolver in `server/utils/docs/client.ts`
+async function load(specifier: string) {
+  if (IS_SOURCE_MAP.test(specifier) || !/^https?:/.test(specifier)) return undefined
+
+  const response = await fetch(specifier, { redirect: 'follow' })
+  if (response.status !== 200) return undefined
+
+  return {
+    kind: 'module' as const,
+    specifier: response.url || specifier,
+    headers: Object.fromEntries(response.headers),
+    content: await response.text(),
+  }
+}
+
+function resolve(specifier: string, referrer: string): string {
+  if (IS_SOURCE_MAP.test(specifier)) return specifier
+  if (specifier.startsWith('.') || specifier.startsWith('/')) {
+    return new URL(specifier, referrer).toString()
+  }
+  if (!/^https?:/.test(specifier) && !isBuiltin(specifier)) {
+    if (new URL(referrer).hostname === 'esm.sh') return `https://esm.sh/${specifier}`
+  }
+  return specifier
+}
+
+async function getNodes(url: string) {
+  const result = await doc([url], { load, resolve })
+  return Object.values(result).flat()
+}
+
+async function generateDocNodeFixtures(): Promise<void> {
+  const nodesByUrl = new Map<string, Awaited<ReturnType<typeof getNodes>>>()
+
+  for (const { file, url, name } of REQUIRED_DOC_NODES) {
+    console.log(`  Documenting ${name} from ${url}`)
+
+    let nodes = nodesByUrl.get(url)
+    if (!nodes) {
+      nodes = await getNodes(url)
+      nodesByUrl.set(url, nodes)
+    }
+
+    const node = nodes.find(candidate => candidate.name === name)
+    if (!node) throw new Error(`Could not find "${name}" in ${url}`)
+
+    writeFixture(join(FIXTURES_DIR, 'esm-sh', 'doc-nodes', `${file}.json`), node)
+  }
+}
+
 // ============================================================================
 // Main
 // ============================================================================
@@ -434,6 +537,10 @@ async function main(): Promise<void> {
     for (const [pkg, version] of Object.entries(REQUIRED_ESM_TYPES)) {
       await generateEsmTypesFixture(pkg, version)
     }
+
+    // Generate @deno/doc node fixtures
+    console.log('\nDoc Nodes:')
+    await generateDocNodeFixtures()
   }
 
   console.log('\n=== Fixture Generation Complete ===\n')
