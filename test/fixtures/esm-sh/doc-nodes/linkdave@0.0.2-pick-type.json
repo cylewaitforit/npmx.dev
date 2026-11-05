@@ -1,17 +1,26 @@
 {
   "name": "RawVoiceServerUpdate",
+  "isDefault": false,
+  "location": {
+    "filename": "https://esm.sh/linkdave@0.0.2/dist/player.d.ts",
+    "line": 16,
+    "col": 0,
+    "byteIndex": 676
+  },
+  "declarationKind": "export",
   "kind": "typeAlias",
   "typeAliasDef": {
     "tsType": {
       "repr": "Pick",
       "kind": "typeRef",
       "typeRef": {
-        "typeName": "Pick",
         "typeParams": [
           {
             "repr": "GatewayVoiceServerUpdateDispatchData",
             "kind": "typeRef",
-            "typeRef": { "typeName": "GatewayVoiceServerUpdateDispatchData" }
+            "typeRef": {
+              "typeName": "GatewayVoiceServerUpdateDispatchData"
+            }
           },
           {
             "repr": "",
@@ -20,21 +29,31 @@
               {
                 "repr": "token",
                 "kind": "literal",
-                "literal": { "kind": "string", "string": "token" }
+                "literal": {
+                  "kind": "string",
+                  "string": "token"
+                }
               },
               {
                 "repr": "guild_id",
                 "kind": "literal",
-                "literal": { "kind": "string", "string": "guild_id" }
+                "literal": {
+                  "kind": "string",
+                  "string": "guild_id"
+                }
               },
               {
                 "repr": "endpoint",
                 "kind": "literal",
-                "literal": { "kind": "string", "string": "endpoint" }
+                "literal": {
+                  "kind": "string",
+                  "string": "endpoint"
+                }
               }
             ]
           }
-        ]
+        ],
+        "typeName": "Pick"
       }
     },
     "typeParams": []

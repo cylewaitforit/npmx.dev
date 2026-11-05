@@ -17,8 +17,8 @@ function loadFixture(name: string): DenoDocNode {
 describe('issue #1411 - linkdave@0.0.2 unknown types', () => {
   it('event listener: interface properties with fnOrConstructor type (client.d.ts)', () => {
     const node = loadFixture('linkdave@0.0.2-client.json')
-    const onProp = node.interfaceDef!.properties![0]!
-    const emitProp = node.interfaceDef!.properties![1]!
+    const onProp = node.interfaceDef!.properties!.find(prop => prop.name === 'on')!
+    const emitProp = node.interfaceDef!.properties!.find(prop => prop.name === 'emit')!
 
     const onType = formatType(onProp.tsType)
     expect(onType).not.toBe('unknown')
@@ -48,8 +48,8 @@ describe('issue #1411 - linkdave@0.0.2 unknown types', () => {
     const type = formatType(node.typeAliasDef!.tsType)
 
     expect(type).not.toBe('unknown')
-    expect(type).toContain('op:')
-    expect(type).toContain('guildId: string')
+    expect(type).toContain('op: ClientOpCodes.Identify; d: IdentifyPayload')
+    expect(type).toContain('op: ClientOpCodes.Pause; d: GuildPayload')
   })
 
   it('arrow function type alias (client.d.ts)', () => {

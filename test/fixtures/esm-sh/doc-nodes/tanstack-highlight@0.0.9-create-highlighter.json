@@ -1,6 +1,13 @@
 {
   "name": "createHighlighter",
   "isDefault": false,
+  "location": {
+    "filename": "https://esm.sh/@tanstack/highlight@0.0.9/dist/core.d.ts",
+    "line": 83,
+    "col": 0,
+    "byteIndex": 2929
+  },
+  "declarationKind": "export",
   "kind": "function",
   "functionDef": {
     "params": [
@@ -21,18 +28,37 @@
           "repr": "",
           "kind": "typeLiteral",
           "typeLiteral": {
+            "constructors": [],
+            "methods": [],
             "properties": [
               {
                 "name": "fallbackLanguage",
+                "location": {
+                  "filename": "https://esm.sh/@tanstack/highlight@0.0.9/dist/core.d.ts",
+                  "line": 84,
+                  "col": 4,
+                  "byteIndex": 3011
+                },
+                "params": [],
+                "computed": false,
                 "optional": true,
                 "tsType": {
                   "repr": "string",
                   "kind": "keyword",
                   "keyword": "string"
-                }
+                },
+                "typeParams": []
               },
               {
                 "name": "languages",
+                "location": {
+                  "filename": "https://esm.sh/@tanstack/highlight@0.0.9/dist/core.d.ts",
+                  "line": 85,
+                  "col": 4,
+                  "byteIndex": 3042
+                },
+                "params": [],
+                "computed": false,
                 "optional": false,
                 "tsType": {
                   "repr": "ReadonlyArray",
@@ -49,10 +75,10 @@
                     ],
                     "typeName": "ReadonlyArray"
                   }
-                }
+                },
+                "typeParams": []
               }
             ],
-            "methods": [],
             "callSignatures": [],
             "indexSignatures": []
           }

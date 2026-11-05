@@ -1,5 +1,13 @@
 {
   "name": "ClientMessage",
+  "isDefault": false,
+  "location": {
+    "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+    "line": 74,
+    "col": 0,
+    "byteIndex": 1532
+  },
+  "declarationKind": "export",
   "kind": "typeAlias",
   "typeAliasDef": {
     "tsType": {
@@ -10,23 +18,50 @@
           "repr": "",
           "kind": "typeLiteral",
           "typeLiteral": {
+            "constructors": [],
+            "methods": [],
             "properties": [
               {
                 "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 75,
+                  "col": 4,
+                  "byteIndex": 1566
+                },
+                "params": [],
+                "computed": false,
                 "optional": false,
                 "tsType": {
-                  "repr": "voiceUpdate",
-                  "kind": "literal",
-                  "literal": { "kind": "string", "string": "voiceUpdate" }
-                }
+                  "repr": "ClientOpCodes.Identify",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Identify"
+                  }
+                },
+                "typeParams": []
               },
               {
-                "name": "guildId",
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 76,
+                  "col": 4,
+                  "byteIndex": 1598
+                },
+                "params": [],
+                "computed": false,
                 "optional": false,
-                "tsType": { "repr": "string", "kind": "keyword", "keyword": "string" }
+                "tsType": {
+                  "repr": "IdentifyPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "IdentifyPayload"
+                  }
+                },
+                "typeParams": []
               }
             ],
-            "methods": [],
             "callSignatures": [],
             "indexSignatures": []
           }
@@ -35,23 +70,516 @@
           "repr": "",
           "kind": "typeLiteral",
           "typeLiteral": {
+            "constructors": [],
+            "methods": [],
             "properties": [
               {
                 "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 78,
+                  "col": 4,
+                  "byteIndex": 1628
+                },
+                "params": [],
+                "computed": false,
                 "optional": false,
                 "tsType": {
-                  "repr": "play",
-                  "kind": "literal",
-                  "literal": { "kind": "string", "string": "play" }
-                }
+                  "repr": "ClientOpCodes.VoiceUpdate",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.VoiceUpdate"
+                  }
+                },
+                "typeParams": []
               },
               {
-                "name": "guildId",
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 79,
+                  "col": 4,
+                  "byteIndex": 1663
+                },
+                "params": [],
+                "computed": false,
                 "optional": false,
-                "tsType": { "repr": "string", "kind": "keyword", "keyword": "string" }
+                "tsType": {
+                  "repr": "VoiceUpdatePayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "VoiceUpdatePayload"
+                  }
+                },
+                "typeParams": []
               }
             ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
             "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 81,
+                  "col": 4,
+                  "byteIndex": 1696
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Play",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Play"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 82,
+                  "col": 4,
+                  "byteIndex": 1724
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "PlayPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "PlayPayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 84,
+                  "col": 4,
+                  "byteIndex": 1750
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Pause",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Pause"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 85,
+                  "col": 4,
+                  "byteIndex": 1779
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "GuildPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "GuildPayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 87,
+                  "col": 4,
+                  "byteIndex": 1806
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Resume",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Resume"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 88,
+                  "col": 4,
+                  "byteIndex": 1836
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "GuildPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "GuildPayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 90,
+                  "col": 4,
+                  "byteIndex": 1863
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Stop",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Stop"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 91,
+                  "col": 4,
+                  "byteIndex": 1891
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "GuildPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "GuildPayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 93,
+                  "col": 4,
+                  "byteIndex": 1918
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Seek",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Seek"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 94,
+                  "col": 4,
+                  "byteIndex": 1946
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "SeekPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "SeekPayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 96,
+                  "col": 4,
+                  "byteIndex": 1972
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Disconnect",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Disconnect"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 97,
+                  "col": 4,
+                  "byteIndex": 2006
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "GuildPayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "GuildPayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 99,
+                  "col": 4,
+                  "byteIndex": 2033
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Ping",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Ping"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 100,
+                  "col": 4,
+                  "byteIndex": 2061
+                },
+                "params": [],
+                "computed": false,
+                "optional": true,
+                "tsType": {
+                  "repr": "undefined",
+                  "kind": "keyword",
+                  "keyword": "undefined"
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 102,
+                  "col": 4,
+                  "byteIndex": 2086
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.Volume",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.Volume"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 103,
+                  "col": 4,
+                  "byteIndex": 2116
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "VolumePayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "VolumePayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
+            "callSignatures": [],
+            "indexSignatures": []
+          }
+        },
+        {
+          "repr": "",
+          "kind": "typeLiteral",
+          "typeLiteral": {
+            "constructors": [],
+            "methods": [],
+            "properties": [
+              {
+                "name": "op",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 105,
+                  "col": 4,
+                  "byteIndex": 2144
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "ClientOpCodes.PlayerMigrate",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "ClientOpCodes.PlayerMigrate"
+                  }
+                },
+                "typeParams": []
+              },
+              {
+                "name": "d",
+                "location": {
+                  "filename": "https://esm.sh/linkdave@0.0.2/dist/types.d.ts",
+                  "line": 106,
+                  "col": 4,
+                  "byteIndex": 2181
+                },
+                "params": [],
+                "computed": false,
+                "optional": false,
+                "tsType": {
+                  "repr": "PlayerMigratePayload",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "PlayerMigratePayload"
+                  }
+                },
+                "typeParams": []
+              }
+            ],
             "callSignatures": [],
             "indexSignatures": []
           }

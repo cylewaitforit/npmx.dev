@@ -1,5 +1,13 @@
 {
   "name": "SendToShardFn",
+  "isDefault": false,
+  "location": {
+    "filename": "https://esm.sh/linkdave@0.0.2/dist/client.d.ts",
+    "line": 6,
+    "col": 0,
+    "byteIndex": 331
+  },
+  "declarationKind": "export",
   "kind": "typeAlias",
   "typeAliasDef": {
     "tsType": {
@@ -7,13 +15,21 @@
       "kind": "fnOrConstructor",
       "fnOrConstructor": {
         "constructor": false,
-        "tsType": { "repr": "void", "kind": "keyword", "keyword": "void" },
+        "tsType": {
+          "repr": "void",
+          "kind": "keyword",
+          "keyword": "void"
+        },
         "params": [
           {
             "kind": "identifier",
             "name": "guildId",
             "optional": false,
-            "tsType": { "repr": "string", "kind": "keyword", "keyword": "string" }
+            "tsType": {
+              "repr": "string",
+              "kind": "keyword",
+              "keyword": "string"
+            }
           },
           {
             "kind": "identifier",
@@ -22,7 +38,9 @@
             "tsType": {
               "repr": "GatewayVoiceStateUpdate",
               "kind": "typeRef",
-              "typeRef": { "typeName": "GatewayVoiceStateUpdate" }
+              "typeRef": {
+                "typeName": "GatewayVoiceStateUpdate"
+              }
             }
           }
         ],

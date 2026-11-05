@@ -835,7 +835,7 @@ test/fixtures/
 ├── algolia/
 │   └── search/           # Algolia search results
 ├── esm-sh/
-│   ├── doc-nodes/        # Parsed documentation nodes (exports, types, functions)
+│   ├── doc-nodes/        # Parsed documentation nodes (generated with `pnpm generate:doc-node-fixtures`)
 │   ├── headers/          # esm.sh response headers (used to resolve type declarations)
 │   └── types/            # TypeScript type declaration files
 ├── github/               # GitHub API responses (contributor stats)

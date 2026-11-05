@@ -1,5 +1,13 @@
 {
   "name": "LinkDaveClient",
+  "isDefault": false,
+  "location": {
+    "filename": "https://esm.sh/linkdave@0.0.2/dist/client.d.ts",
+    "line": 12,
+    "col": 0,
+    "byteIndex": 544
+  },
+  "declarationKind": "export",
   "kind": "interface",
   "interfaceDef": {
     "extends": [],
@@ -8,6 +16,13 @@
     "properties": [
       {
         "name": "on",
+        "location": {
+          "filename": "https://esm.sh/linkdave@0.0.2/dist/client.d.ts",
+          "line": 13,
+          "col": 4,
+          "byteIndex": 582
+        },
+        "params": [],
         "computed": false,
         "optional": false,
         "tsType": {
@@ -15,7 +30,11 @@
           "kind": "fnOrConstructor",
           "fnOrConstructor": {
             "constructor": false,
-            "tsType": { "repr": "this", "kind": "this", "this": true },
+            "tsType": {
+              "repr": "this",
+              "kind": "this",
+              "this": true
+            },
             "params": [
               {
                 "kind": "identifier",
@@ -24,7 +43,9 @@
                 "tsType": {
                   "repr": "K",
                   "kind": "typeRef",
-                  "typeRef": { "typeName": "K" }
+                  "typeRef": {
+                    "typeName": "K"
+                  }
                 }
               },
               {
@@ -36,7 +57,11 @@
                   "kind": "fnOrConstructor",
                   "fnOrConstructor": {
                     "constructor": false,
-                    "tsType": { "repr": "void", "kind": "keyword", "keyword": "void" },
+                    "tsType": {
+                      "repr": "void",
+                      "kind": "keyword",
+                      "keyword": "void"
+                    },
                     "params": [
                       {
                         "kind": "identifier",
@@ -50,12 +75,16 @@
                             "objType": {
                               "repr": "ManagerEvents",
                               "kind": "typeRef",
-                              "typeRef": { "typeName": "ManagerEvents" }
+                              "typeRef": {
+                                "typeName": "ManagerEvents"
+                              }
                             },
                             "indexType": {
                               "repr": "K",
                               "kind": "typeRef",
-                              "typeRef": { "typeName": "K" }
+                              "typeRef": {
+                                "typeName": "K"
+                              }
                             }
                           }
                         }
@@ -77,17 +106,27 @@
                     "tsType": {
                       "repr": "ManagerEvents",
                       "kind": "typeRef",
-                      "typeRef": { "typeName": "ManagerEvents" }
+                      "typeRef": {
+                        "typeName": "ManagerEvents"
+                      }
                     }
                   }
                 }
               }
             ]
           }
-        }
+        },
+        "typeParams": []
       },
       {
-        "name": "emit",
+        "name": "once",
+        "location": {
+          "filename": "https://esm.sh/linkdave@0.0.2/dist/client.d.ts",
+          "line": 14,
+          "col": 4,
+          "byteIndex": 685
+        },
+        "params": [],
         "computed": false,
         "optional": false,
         "tsType": {
@@ -95,7 +134,11 @@
           "kind": "fnOrConstructor",
           "fnOrConstructor": {
             "constructor": false,
-            "tsType": { "repr": "boolean", "kind": "keyword", "keyword": "boolean" },
+            "tsType": {
+              "repr": "this",
+              "kind": "this",
+              "this": true
+            },
             "params": [
               {
                 "kind": "identifier",
@@ -104,7 +147,217 @@
                 "tsType": {
                   "repr": "K",
                   "kind": "typeRef",
-                  "typeRef": { "typeName": "K" }
+                  "typeRef": {
+                    "typeName": "K"
+                  }
+                }
+              },
+              {
+                "kind": "identifier",
+                "name": "listener",
+                "optional": false,
+                "tsType": {
+                  "repr": "",
+                  "kind": "fnOrConstructor",
+                  "fnOrConstructor": {
+                    "constructor": false,
+                    "tsType": {
+                      "repr": "void",
+                      "kind": "keyword",
+                      "keyword": "void"
+                    },
+                    "params": [
+                      {
+                        "kind": "identifier",
+                        "name": "data",
+                        "optional": false,
+                        "tsType": {
+                          "repr": "",
+                          "kind": "indexedAccess",
+                          "indexedAccess": {
+                            "readonly": false,
+                            "objType": {
+                              "repr": "ManagerEvents",
+                              "kind": "typeRef",
+                              "typeRef": {
+                                "typeName": "ManagerEvents"
+                              }
+                            },
+                            "indexType": {
+                              "repr": "K",
+                              "kind": "typeRef",
+                              "typeRef": {
+                                "typeName": "K"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "typeParams": []
+                  }
+                }
+              }
+            ],
+            "typeParams": [
+              {
+                "name": "K",
+                "constraint": {
+                  "repr": "",
+                  "kind": "typeOperator",
+                  "typeOperator": {
+                    "operator": "keyof",
+                    "tsType": {
+                      "repr": "ManagerEvents",
+                      "kind": "typeRef",
+                      "typeRef": {
+                        "typeName": "ManagerEvents"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "typeParams": []
+      },
+      {
+        "name": "off",
+        "location": {
+          "filename": "https://esm.sh/linkdave@0.0.2/dist/client.d.ts",
+          "line": 15,
+          "col": 4,
+          "byteIndex": 790
+        },
+        "params": [],
+        "computed": false,
+        "optional": false,
+        "tsType": {
+          "repr": "",
+          "kind": "fnOrConstructor",
+          "fnOrConstructor": {
+            "constructor": false,
+            "tsType": {
+              "repr": "this",
+              "kind": "this",
+              "this": true
+            },
+            "params": [
+              {
+                "kind": "identifier",
+                "name": "event",
+                "optional": false,
+                "tsType": {
+                  "repr": "K",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "K"
+                  }
+                }
+              },
+              {
+                "kind": "identifier",
+                "name": "listener",
+                "optional": false,
+                "tsType": {
+                  "repr": "",
+                  "kind": "fnOrConstructor",
+                  "fnOrConstructor": {
+                    "constructor": false,
+                    "tsType": {
+                      "repr": "void",
+                      "kind": "keyword",
+                      "keyword": "void"
+                    },
+                    "params": [
+                      {
+                        "kind": "identifier",
+                        "name": "data",
+                        "optional": false,
+                        "tsType": {
+                          "repr": "",
+                          "kind": "indexedAccess",
+                          "indexedAccess": {
+                            "readonly": false,
+                            "objType": {
+                              "repr": "ManagerEvents",
+                              "kind": "typeRef",
+                              "typeRef": {
+                                "typeName": "ManagerEvents"
+                              }
+                            },
+                            "indexType": {
+                              "repr": "K",
+                              "kind": "typeRef",
+                              "typeRef": {
+                                "typeName": "K"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "typeParams": []
+                  }
+                }
+              }
+            ],
+            "typeParams": [
+              {
+                "name": "K",
+                "constraint": {
+                  "repr": "",
+                  "kind": "typeOperator",
+                  "typeOperator": {
+                    "operator": "keyof",
+                    "tsType": {
+                      "repr": "ManagerEvents",
+                      "kind": "typeRef",
+                      "typeRef": {
+                        "typeName": "ManagerEvents"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "typeParams": []
+      },
+      {
+        "name": "emit",
+        "location": {
+          "filename": "https://esm.sh/linkdave@0.0.2/dist/client.d.ts",
+          "line": 16,
+          "col": 4,
+          "byteIndex": 894
+        },
+        "params": [],
+        "computed": false,
+        "optional": false,
+        "tsType": {
+          "repr": "",
+          "kind": "fnOrConstructor",
+          "fnOrConstructor": {
+            "constructor": false,
+            "tsType": {
+              "repr": "boolean",
+              "kind": "keyword",
+              "keyword": "boolean"
+            },
+            "params": [
+              {
+                "kind": "identifier",
+                "name": "event",
+                "optional": false,
+                "tsType": {
+                  "repr": "K",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeName": "K"
+                  }
                 }
               },
               {
@@ -119,12 +372,16 @@
                     "objType": {
                       "repr": "ManagerEvents",
                       "kind": "typeRef",
-                      "typeRef": { "typeName": "ManagerEvents" }
+                      "typeRef": {
+                        "typeName": "ManagerEvents"
+                      }
                     },
                     "indexType": {
                       "repr": "K",
                       "kind": "typeRef",
-                      "typeRef": { "typeName": "K" }
+                      "typeRef": {
+                        "typeName": "K"
+                      }
                     }
                   }
                 }
@@ -141,14 +398,17 @@
                     "tsType": {
                       "repr": "ManagerEvents",
                       "kind": "typeRef",
-                      "typeRef": { "typeName": "ManagerEvents" }
+                      "typeRef": {
+                        "typeName": "ManagerEvents"
+                      }
                     }
                   }
                 }
               }
             ]
           }
-        }
+        },
+        "typeParams": []
       }
     ],
     "callSignatures": [],
